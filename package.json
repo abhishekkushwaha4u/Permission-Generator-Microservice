@@ -1,0 +1,19 @@
+{
+  "name": "permission-microservice",
+  "version": "1.0.0",
+  "description": "A microservice for generating pdf files from a JSON request according to a given template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  },
+  "author": "Abhishek Kushwaha",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "html-pdf": "^2.2.0",
+    "body-parser": "latest"
+  }
+}
