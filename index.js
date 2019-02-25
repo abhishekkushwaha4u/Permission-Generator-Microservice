@@ -275,5 +275,5 @@ app.post('/nightPermissions', async (req, res) => {
 
 
 // Listening to requests
-port = process.env.PORT | 8000;
+port = process.env.PORT  || 8000;
 app.listen(port, () => console.log(`rsListening on port ${port}`));
