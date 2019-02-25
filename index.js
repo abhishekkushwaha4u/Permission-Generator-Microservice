@@ -8,11 +8,13 @@ const bodyParser = require('body-parser');
 
 // instance of express defined
 const app = Express();
-app.use( Express.static( "public" ) );
+app.use( Express.static( "/public/images" ) );
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw({type: 'application/json'}));
 app.use(bodyParser.json());
+
+
 
 //Receiving a post request at the sendEvent endpoint
 /**
@@ -68,11 +70,7 @@ app.use(bodyParser.json());
  *       }
  *   },
  *   "err": null
- * }
- * 
- * @apiParamExample {json} response-example
- * {    }
- * 
+ * } 
  */
 app.post('/sendEvent', async (req, res) => {
     const info = JSON.parse(req.body);
