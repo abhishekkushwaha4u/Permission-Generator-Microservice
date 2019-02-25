@@ -15,7 +15,11 @@ app.use(bodyParser.raw({type: 'application/json'}));
 app.use(bodyParser.json());
 
 
+app.get('/',(req,res)=>{
+    console.log({"message" : "Working Fine"});
+    res.send({"message" : "Working Fine"})
 
+})
 //Receiving a post request at the sendEvent endpoint
 /**
  * @api {post} /sendEvent Send an Event
