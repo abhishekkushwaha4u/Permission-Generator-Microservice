@@ -1,8 +1,36 @@
 [
   {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./docs/main.js",
+    "group": "D__Miscellaneous_Study_and_Interest_Atom_Projects_permission_microservice_docs_main_js",
+    "groupTitle": "D__Miscellaneous_Study_and_Interest_Atom_Projects_permission_microservice_docs_main_js",
+    "name": ""
+  },
+  {
     "type": "post",
     "url": "/nightPermissions",
-    "title": "Nightpermission for club related and lab activities in VIT",
+    "title": "Nightpermission in VIT",
     "name": "Night_Permission_Generator",
     "group": "all",
     "parameter": {
@@ -112,7 +140,7 @@
   {
     "type": "post",
     "url": "/sendEvent",
-    "title": "send an event",
+    "title": "Send an Event",
     "name": "Send_Event",
     "group": "all",
     "description": "<p>Returns a pdf of the Event form filled with information supplied by the user</p>",
@@ -251,7 +279,7 @@
   {
     "type": "post",
     "url": "/sendExt",
-    "title": "send an event for externals outside VIT",
+    "title": "Send event for externals",
     "name": "Send_event_for_Externals",
     "group": "all",
     "parameter": {
@@ -340,7 +368,7 @@
   {
     "type": "post",
     "url": "/sendExtStudent",
-    "title": "send an event for external students outside VIT",
+    "title": "Send Event for external students",
     "name": "send_event_for_external_students",
     "group": "all",
     "parameter": {

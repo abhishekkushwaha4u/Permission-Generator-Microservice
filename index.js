@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 //Receiving a post request at the sendEvent endpoint
 /**
- * @api {post} /sendEvent send an event
+ * @api {post} /sendEvent Send an Event
  * @apiName Send Event 
  * @apiGroup all
  * @apiDescription Returns a pdf of the Event form filled with information supplied by the user
@@ -95,7 +95,7 @@ app.post('/sendEvent', async (req, res) => {
 });
 
 /**
- * @api {post} /sendExtStudent send an event for external students outside VIT
+ * @api {post} /sendExtStudent Send Event for external students
  * @apiName send event for external students
  * @apiGroup all
  * @apiParam {string} clubName Name of the club
@@ -151,7 +151,7 @@ app.post('/sendExtStudent', async (req, res) => {
 });
 
 /**
- * @api {post} /sendExt send an event for externals outside VIT
+ * @api {post} /sendExt Send event for externals
  * @apiName Send event for Externals
  * @apiGroup all
  * @apiParam {string} clubName Name of club 
@@ -212,7 +212,7 @@ app.post('/sendExt', async (req, res) => {
 });
 
 /**
- * @api {post} /nightPermissions Nightpermission for club related and lab activities in VIT
+ * @api {post} /nightPermissions Nightpermission in VIT
  * @apiName Night-Permission Generator
  * @apiGroup all
  * @apiParam {string} date Date
