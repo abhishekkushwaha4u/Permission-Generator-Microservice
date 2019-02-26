@@ -255,11 +255,6 @@ app.post('/nightPermissions', async (req, res) => {
     console.log(info4);
     const renderedView = await ejs.renderFile('./views/NightRoom_Permissions.ejs', {info4 : info4}, 'cache');
     console.log(renderedView);
-    fs.writeFile('Just_Delete_me.html',renderedView, 'utf8', (err) => {
-        // throws an error, you could also catch it here
-        if (err) throw err;
-        console.log('Task done!');
-    });
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
     const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
