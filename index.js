@@ -8,15 +8,21 @@ const bodyParser = require('body-parser');
 
 // instance of express defined
 const app = Express();
-app.use( Express.static( "public" ) );
+app.use( Express.static( "/public/images" ) );
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw({type: 'application/json'}));
 app.use(bodyParser.json());
 
+
+app.get('/',(req,res)=>{
+    console.log({"message" : "Working Fine"});
+    res.send({"message" : "Working Fine"})
+
+})
 //Receiving a post request at the sendEvent endpoint
 /**
- * @api {post} /sendEvent send an event
+ * @api {post} /sendEvent Send an Event
  * @apiName Send Event 
  * @apiGroup all
  * @apiDescription Returns a pdf of the Event form filled with information supplied by the user
@@ -68,7 +74,7 @@ app.use(bodyParser.json());
  *       }
  *   },
  *   "err": null
- * }
+ * } 
  */
 app.post('/sendEvent', async (req, res) => {
     const info = JSON.parse(req.body);
@@ -93,7 +99,7 @@ app.post('/sendEvent', async (req, res) => {
 });
 
 /**
- * @api {post} /sendExtStudent send an event for external students outside VIT
+ * @api {post} /sendExtStudent Send Event for external students
  * @apiName send event for external students
  * @apiGroup all
  * @apiParam {string} clubName Name of the club
@@ -149,7 +155,7 @@ app.post('/sendExtStudent', async (req, res) => {
 });
 
 /**
- * @api {post} /sendExt send an event for externals outside VIT
+ * @api {post} /sendExt Send event for externals
  * @apiName Send event for Externals
  * @apiGroup all
  * @apiParam {string} clubName Name of club 
@@ -210,7 +216,7 @@ app.post('/sendExt', async (req, res) => {
 });
 
 /**
- * @api {post} /nightPermissions Nightpermission for club related and lab activities in VIT
+ * @api {post} /nightPermissions Nightpermission in VIT
  * @apiName Night-Permission Generator
  * @apiGroup all
  * @apiParam {string} date Date
@@ -249,11 +255,6 @@ app.post('/nightPermissions', async (req, res) => {
     console.log(info4);
     const renderedView = await ejs.renderFile('./views/NightRoom_Permissions.ejs', {info4 : info4}, 'cache');
     console.log(renderedView);
-    fs.writeFile('Just_Delete_me.html',renderedView, 'utf8', (err) => {
-        // throws an error, you could also catch it here
-        if (err) throw err;
-        console.log('Task done!');
-    });
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
     const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
@@ -273,5 +274,6 @@ app.post('/nightPermissions', async (req, res) => {
 
 
 // Listening to requests
-port = process.env.PORT | 8000;
+port = process.env.PORT  || 8000;
 app.listen(port, () => console.log(`rsListening on port ${port}`));
+© 2019 Gi
