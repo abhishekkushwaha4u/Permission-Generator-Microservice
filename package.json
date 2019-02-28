@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "export": "npm run build && next export",
     "debug": "nodemon index.js"
   },
   "author": "Abhishek Kushwaha",
@@ -17,3 +20,4 @@
     "body-parser": "latest"
   }
 }
+
