@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -14,44 +13,44 @@
 <body>
     <p style="text-align: center;font-size: 8 px"><u>OFFICE OF THE STUDENT WELFARE</u></p>
     <p style="text-align: right;width:100%"><u>(Place Logo)</u></p>
-    <p STYLE="text-align: center;"><u>EVENT REQUEST FORM</u></p>
+    <p style="text-align: center;"><u>EVENT REQUEST FORM</u></p>
 
 <div style="position:relative;">
     <div style="position: absolute;width: 40%; height: 25px;"><b>CLUB/CHAPTER NAME:</b></div>
-    <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px"><%= event.clubName %></div>
+    <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.clubName %&gt;</div>
 </div>
 <div style="position:relative;margin-top: 46px;">
     <div style="position: absolute;width: 40%; height: 25px;"><b>EVENT NAME:</b></div>
-    <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px"><%= event.eventName %></div>
+    <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.eventName %&gt;</div>
 </div>
 <div style="position:relative;margin-top: 76px;">
     <div style="position: absolute;width: 60%; height: 25px;"><b>DATE:</b></div>
-    <div style="position: absolute;border: 1px solid black;left: 50%; width: 10%; height: 25px; text-align: center; font-size : 14px"><%= event.day %></div>
-    <div style="position: absolute;border: 1px solid black; left: 60%; width : 10%; height: 25px; text-align: center; font-size : 14px"><%= event.month %></div>
+    <div style="position: absolute;border: 1px solid black;left: 50%; width: 10%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.day %&gt;</div>
+    <div style="position: absolute;border: 1px solid black; left: 60%; width : 10%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.month %&gt;</div>
     <div style="position: absolute;border: 1px solid black; left: 70%; width: 30%; height: 25px; text-align: center">2019</div>
 </div>
 <div style="position:relative; margin-top: 102px;">
     <div style="position: absolute;width: 60%; height: 25px;"><b>TIME:</b></div>
-    <div style="position: absolute;border: 1px solid black;left: 50%; width: 20%; height: 25px;text-align: center; font-size : 14px"><%= event.fromTime %> to <%= event.toTime %></div>
+    <div style="position: absolute;border: 1px solid black;left: 50%; width: 20%; height: 25px;text-align: center; font-size : 14px">&lt;%= event.fromTime %&gt; to &lt;%= event.toTime %&gt;</div>
     <div style="position: absolute;border: 1px solid black; left: 70%; width: 30%; height: 25px; text-align: center;">AM/PM</div>
 </div>
 <div style="position:relative; margin-top: 130px;">
     <div style="position: absolute;width: 50%; height: 25px;"><b>DURATION:</b></div>
-    <div style="position: absolute;left: 50%; width: 50%; height: 25px;font-size : 14px">Full Day/Half Day/<u><pre style="display: inline;">   </pre></u><%= event.duration %>__ Hrs.</div>
+    <div style="position: absolute;left: 50%; width: 50%; height: 25px;font-size : 14px">Full Day/Half Day/<u><pre style="display: inline;">   </pre></u>&lt;%= event.duration %&gt;__ Hrs.</div>
 </div>
 
 <div style="width: 968px; height: 150px; border: 1px solid black; margin-top: 150px; width:auto ;height:auto">
     <p style="margin-top: 2px; margin-left: 2px;"><b>EVENT DESCRIPTION :</b></p>
-    <p >Category : <%= event.category %></p>
-    <p style="border: none;font-size : 14px"  cols="120" rows="8"><%= event.description %></p>
+    <p>Category : &lt;%= event.category %&gt;</p>
+    <p style="border: none;font-size : 14px" cols="120" rows="8">&lt;%= event.description %&gt;</p>
 </div>
     <div style="position:relative; margin-top: 4px;">
         <div style="position: absolute;width: 40%; height: 25px;"><b>EXPECTED PARTICIPANTS:</b></div>
-        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px"><%= event.noOfParticipants %></div>
+        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.noOfParticipants %&gt;</div>
     </div>
     <div style="position:relative; margin-top: 35px">
         <div style="position: absolute;width: 40%; height: 25px;"><b>VENUE REQUIREMENT:</b></div>
-        <div style="position: absolute;border: 1px solid black;left: 40%; width: 40%; height: 25px; text-align: center; font-size : 14px "><%= event.venue %></div>
+        <div style="position: absolute;border: 1px solid black;left: 40%; width: 40%; height: 25px; text-align: center; font-size : 14px ">&lt;%= event.venue %&gt;</div>
         <div style="position: absolute;border: 1px solid black;left: 80%; width: 17%; height: 25px; font-size: 8px">Class Room: No.</div>
         <div style="position: absolute;border: 1px solid black;left: 97%; width: 3%; height: 25px; text-align: center "></div>
     </div>
@@ -61,154 +60,151 @@
     </div>
     <div style="position:relative; margin-top: 97px">
         <div style="position: absolute;width: 40%; height: 25px;"><b>BUDGET:</b></div>
-        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px"><%= event.budget %></div>
+        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.budget %&gt;</div>
     </div>
     <div style="position:relative;margin-top: 128px">
         <div style="position: absolute;width: 40%; height: 25px;"><b>SPONSORS:</b></div>
-        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px"><%= event.sponsors %></div>
+        <div style="position: absolute;border: 1px solid black;left: 40%; width: 60%; height: 25px; text-align: center; font-size : 14px">&lt;%= event.sponsors %&gt;</div>
     </div>
 
     <br>
-    <div style="width: 100vw;" >
-        <div style="display: inline-block;  width: 42vw; ">
-            <div style="width: 100vw;height: 30px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;"></div>
-                <div style=" width: 70vw; height: 25px; display: inline-block; font-size : 13px; ">STUDENT COORDINATOR DETAILS</div>
+    <div style="width: 100vw;">
+        <div style="display: inline-block;  width: 50vw; ">
+            <div style="width: 100%;height: 30px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;"></div>
+                <div style=" width: 70%; height: 25px; display: inline-block; font-size : 13px; ">STUDENT COORDINATOR DETAILS</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Name: </div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px"><%= event.student.name %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Name: </div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px">&lt;%= event.student.name %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Reg. No.</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px"><%= event.student.regNo %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Reg. No.</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px">&lt;%= event.student.regNo %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Mobile No.</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px"><%= event.student.mobile %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Mobile No.</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px">&lt;%= event.student.mobile %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Email: </div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center;font-size : 14px"><%= event.student.email %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Email: </div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center;font-size : 14px">&lt;%= event.student.email %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 50px;">
-                <div style=" width: 25vw; height: 50px; display: inline-block;">Signature:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 50px; display: inline-block;"></div>
+            <div style="width: 100%;height: 50px;">
+                <div style=" width: 25%; height:50px ;line-height:-100px;position:relative; top:-25px; display: inline-block;">Signature:</div>
+                <div style="border: 1px solid black; width: 70%; height: 50px; display: inline-block;"></div>
             </div>
-            <div style="width: 100vw;height: 50px; visibility: hidden">
-                <div style=" width: 25vw; height: 50px; display: inline-block;">Seal:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 50px; display: inline-block;"></div>
-            </div>
+            
         </div>
         <div style="display: inline-block; width: 42vw;  left: 400px;">
-            <div style="width: 100vw;height: 30px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;"></div>
-                <div style=" width: 70vw; height: 25px; display: inline-block; font-size : 13px; ">FACULTY COORDINATOR DETAILS</div>
+            <div style="width: 100%;height: 30px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;"></div>
+                <div style=" width: 70%; height: 25px; display: inline-block; font-size : 13px; ">FACULTY COORDINATOR DETAILS</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Name:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px"><%= event.faculty.name %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Name:</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px">&lt;%= event.faculty.name %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Emp. ID.</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px "><%= event.faculty.regNo %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Emp. ID.</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px ">&lt;%= event.faculty.regNo %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Mobile No.</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align: center; font-size : 14px"><%= event.faculty.mobile %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Mobile No.</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align: center; font-size : 14px">&lt;%= event.faculty.mobile %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 25px;">
-                <div style=" width: 25vw; height: 25px; display: inline-block;">Email:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 25px; display: inline-block; text-align : center; font-size : 14px"><%= event.faculty.email %></div>
+            <div style="width: 100%;height: 25px;">
+                <div style=" width: 25%; height: 25px; display: inline-block;">Email:</div>
+                <div style="border: 1px solid black; width: 70%; height: 25px; display: inline-block; text-align : center; font-size : 14px">&lt;%= event.faculty.email %&gt;</div>
             </div>
-            <div style="width: 100vw;height: 50px;">
-                <div style=" width: 25vw; height: 50px; display: inline-block;">Signature:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 50px; display: inline-block;"></div>
+            <div style="width: 100%;height: 50px;">
+                <div style=" width: 25%; height:50px ;line-height:-100px;position:relative; top:-25px; display: inline-block;">Signature:</div>
+                <div style="border: 1px solid black; width: 70%; height: 50px; display: inline-block;"></div>
             </div>
-            <div style="width: 100vw;height: 50px;">
-                <div style=" width: 25vw; height: 50px; display: inline-block;">Seal:</div>
-                <div style="border: 1px solid black; width: 70vw; height: 50px; display: inline-block;"></div>
+            <div style="width: 100%;height: 50px;">
+                <div style=" width: 25%; height:50px ;line-height:-100px;position:relative; top:-25px; display: inline-block;">Seal:</div>
+                <div style="border: 1px solid black; width: 70%; height: 50px; display: inline-block;"></div>
             </div>
         </div>
     </div>
 
-<div style="width: 100vw; margin-top: 6px;">
-<div style="width: 44vw; margin-right : 82px; display: inline-block">
-    <div style="position: relative;width : 100vw; height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; width : 90vw; text-align: center;font-size: 15px">Event Requirements</div>
+<div style="width: 100%; margin-top: 6px;">
+<div style="width: 44%; margin-right : 82px; display: inline-block">
+    <div style="position: relative;width : 100%; height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; width : 90%; text-align: center;font-size: 15px">Event Requirements</div>
     </div>
-    <div style="position: relative;width :100vw; height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10vw;text-align: center">1</div>
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 90%; text-align: center; font-size : 14px">Desk duty till <%= event.day %></div>
+    <div style="position: relative;width :100%; height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10%;text-align: center">1</div>
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 90%; text-align: center; font-size : 14px">Desk duty till &lt;%= event.day %&gt;</div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 10vw;text-align: center">2</div>
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw;"></div>
-    </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10vw;text-align: center">3</div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 10%;text-align: center">2</div>
         <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%;"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10vw;text-align: center">4</div>
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10%;text-align: center">3</div>
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%;"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10vw;text-align: center">5</div>
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10%;text-align: center">4</div>
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%"></div>
+    </div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 10%;text-align: center">5</div>
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%"></div>
     </div>
 </div>
 <div style="width: 44%;display: inline-block">
-    <div style="position: relative;width : 100vw; height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; width : 90vw; text-align: center; font-size: 15px">Outside Visit/ External Speaker Details</div>
+    <div style="position: relative;width : 100%; height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; width : 90%; text-align: center; font-size: 15px">Outside Visit/ External Speaker Details</div>
     </div>
-    <div style="position: relative;width :100vw; height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 90vw;"></div>
+    <div style="position: relative;width :100%; height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width: 90%;"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw;"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%;"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw;"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%;"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%"></div>
     </div>
-    <div style="position: relative;width : 100vw;height: 25px;">
-        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90vw"></div>
+    <div style="position: relative;width : 100%;height: 25px;">
+        <div style="display: inline-block; height: 25px;border: 1px solid black; position:absolute; width : 90%"></div>
     </div>
 </div>
 </div>
 
-    <div style="border: 1px solid black; width : 100vw; height: 50px; margin-top: 8px;">
+    <div style="border: 1px solid black; width : 100%; height: 50px; margin-top: 8px;">
         <p style="margin-top: 0">Other Requests :
 
         </p>
 
     </div>
 
-    <div style="width : 100vw; height: 50px; position: relative; border: 1px solid black; margin-top: 4px">
-        <div style="border: 1px solid black; position: absolute;height: 50px; width : 33vw;">
+    <div style="width : 100%; height: 50px; position: relative; border: 1px solid black; margin-top: 4px">
+        <div style="border: 1px solid black; position: absolute;height: 50px; width : 33%;">
 
         </div>
-        <div style="border: 1px solid black; position: absolute;height: 50px; width : 66vw">
+        <div style="border: 1px solid black; position: absolute;height: 50px; width : 66%">
 
         </div>
-        <div style="border: 1px solid black; position: absolute;height: 50px; width : 100vw">
+        <div style="border: 1px solid black; position: absolute;height: 50px; width : 100%">
 
         </div>
     </div>
-    <div style="width : 100vw; height: 15px; position: relative;">
-        <div style="position: absolute;height: 50px; width : 33vw; text-align: center">
+    <div style="width : 100%; height: 15px; position: relative;">
+        <div style="position: absolute;height: 50px; width : 33%; text-align: center">
             ADSW
         </div>
-        <div style="position: absolute;height: 50px; width : 33vw ; text-align: center; left: 33vw;">
+        <div style="position: absolute;height: 50px; width : 33% ; text-align: center; left: 33%;">
             DSW
         </div>
-        <div style="position: absolute;height: 50px; width : 33vw; text-align: center; left: 66vw;">
+        <div style="position: absolute;height: 50px; width : 33%; text-align: center; left: 66%;">
             OFFICE SEAL
         </div>
     </div>
 
-</body>
-</html>
+
+</body></html>
