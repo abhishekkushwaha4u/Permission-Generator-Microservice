@@ -1,9 +1,6 @@
 const Express = require('express');
 const pdf = require('html-pdf');
 const ejs = require('ejs');
-const crypto = require('crypto');
-const path = require('path');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 
 // instance of express defined
