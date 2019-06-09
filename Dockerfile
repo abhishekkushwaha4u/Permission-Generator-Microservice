@@ -1,3 +1,4 @@
+# https://github.com/marcbachmann/node-html-pdf/issues/233#issuecomment-417251026
 FROM node:8.11.3-alpine
 
 RUN mkdir -p /usr/src/app

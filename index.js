@@ -79,7 +79,7 @@ app.post('/sendEvent', async (req, res) => {
   console.log(renderedView);
   const currentDate = (new Date()).valueOf().toString();
   const random = Math.random().toString();
-  await pdf.create(renderedView).toBuffer((err, buffer) => {
+  await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
     if (err) return res.json({ err });
     res.set('Content-disposition', 'attachment; filename=permission.pdf');
   			res.set('Content-Type', 'application/pdf');
@@ -130,7 +130,7 @@ app.post('/sendExtStudent', async (req, res) => {
   console.log(renderedView);
   const currentDate = (new Date()).valueOf().toString();
   const random = Math.random().toString();
-  const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
     if (err) return res.json({ err });
     res.set('Content-disposition', 'attachment; filename=permission.pdf');
   			res.set('Content-Type', 'application/pdf');
@@ -186,7 +186,7 @@ app.post('/sendExt', async (req, res) => {
   console.log(renderedView);
   const currentDate = (new Date()).valueOf().toString();
   const random = Math.random().toString();
-  const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
     if (err) return res.json({ err });
     res.set('Content-disposition', 'attachment; filename=permission.pdf');
   			res.set('Content-Type', 'application/pdf');
@@ -237,7 +237,7 @@ app.post('/nightPermissions', async (req, res) => {
   console.log(renderedView);
   const currentDate = (new Date()).valueOf().toString();
   const random = Math.random().toString();
-  const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
     if (err) return res.json({ err });
     res.set('Content-disposition', 'attachment; filename=permission.pdf');
   			res.set('Content-Type', 'application/pdf');
