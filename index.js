@@ -83,17 +83,13 @@ app.post('/sendEvent', async (req, res) => {
     console.log(renderedView);
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    await pdf.create(renderedView).toFile(pdfName, (err, resp) => {
-        console.log(pdfName);
-        res.download(pdfName, 'event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                // if no error, file has been deleted successfully
-                console.log('File deleted!');
-            });
-        });
+    await pdf.create(renderedView).toBuffer((err, buffer) => {
+				if (err) 
+						return res.json({err})
+				res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+				res.write(buffer)
+				res.end('ended')
     });
 
 });
@@ -140,16 +136,13 @@ app.post('/sendExtStudent', async (req, res) => {
     console.log(renderedView);
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    const resp = await pdf.create(renderedView).toFile(pdfName, () => {
-        console.log(pdfName);
-        res.download(pdfName, 'ext_stud_event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                console.log('File deleted!');
-            });
-        });
+    const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+				if (err) 
+						return res.json({err})
+				res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+				res.write(buffer)
+				res.end('ended')
     });
 
 });
@@ -201,16 +194,13 @@ app.post('/sendExt', async (req, res) => {
     console.log(renderedView);
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    const resp = await pdf.create(renderedView).toFile(pdfName, () => {
-        console.log(pdfName);
-        res.download(pdfName, 'ext_event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                console.log('File deleted!');
-            });
-        });
+    const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+				if (err) 
+						return res.json({err})
+				res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+				res.write(buffer)
+				res.end('ended')
     });
 
 });
@@ -257,19 +247,14 @@ app.post('/nightPermissions', async (req, res) => {
     console.log(renderedView);
     const currentDate = (new Date()).valueOf().toString();
     const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    await pdf.create(renderedView).toFile(pdfName, (err, resp) => {
-        console.log(pdfName);
-        res.download(pdfName, 'Night_Permissions.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                // if no error, file has been deleted successfully
-                console.log('File deleted!');
-            });
-        });
+    const resp = await pdf.create(renderedView).toBuffer((err, buffer) => {
+				if (err) 
+						return res.json({err})
+				res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+				res.write(buffer)
+				res.end('ended')
     });
-
 });
 
 
