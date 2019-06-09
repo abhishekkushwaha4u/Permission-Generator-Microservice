@@ -11,6 +11,7 @@ A light microservice for generating event permissions
 - [X] Send event to externals
 - [X] Send event to external students
 - [ ] Fetch event details directly from Hades
+- [ ] Custom permission template upload and generation
 - [ ] Send Permission document to the mailer service
 
 <br/>
