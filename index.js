@@ -1,29 +1,25 @@
 const Express = require('express');
 const pdf = require('html-pdf');
 const ejs = require('ejs');
-const crypto = require('crypto');
-const path = require('path');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 
 // instance of express defined
 const app = Express();
-app.use( Express.static( "/public/images" ) );
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.raw({type: 'application/json'}));
+app.use(Express.static('/public/images'));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw({ type: 'application/json' }));
 app.use(bodyParser.json());
 
 
-app.get('/',(req,res)=>{
-    console.log({"message" : "Working Fine"});
-    res.send({"message" : "Working Fine"})
-
-})
-//Receiving a post request at the sendEvent endpoint
+app.get('/', (req, res) => {
+  console.log({ message: 'Working Fine' });
+  res.send({ message: 'Working Fine' });
+});
+// Receiving a post request at the sendEvent endpoint
 /**
  * @api {post} /sendEvent Send an Event
- * @apiName Send Event 
+ * @apiName Send Event
  * @apiGroup all
  * @apiDescription Returns a pdf of the Event form filled with information supplied by the user
  * @apiParam {object} event eventName
@@ -41,9 +37,9 @@ app.get('/',(req,res)=>{
  * @apiParam {object} faculty Faculty Coordinator Details (Participant Object)
  * @apiParam {object} student Student Coordinator Details (Participant Object)
  * @apiParam {string} err Error encountered
- * 
+ *
  * @apiPermission admin
- * 
+ *
  * @apiParamExample {json} request-example
  * {"event": {
  *       "clubName": "GDG",
@@ -74,28 +70,22 @@ app.get('/',(req,res)=>{
  *       }
  *   },
  *   "err": null
- * } 
+ * }
  */
 app.post('/sendEvent', async (req, res) => {
-    const info = JSON.parse(req.body);
-    console.log(info);
-    const renderedView = await ejs.renderFile('./views/index.ejs', {event: info.event}, 'cache');
-    console.log(renderedView);
-    const currentDate = (new Date()).valueOf().toString();
-    const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    await pdf.create(renderedView).toFile(pdfName, (err, resp) => {
-        console.log(pdfName);
-        res.download(pdfName, 'event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                // if no error, file has been deleted successfully
-                console.log('File deleted!');
-            });
-        });
-    });
-
+  const info = JSON.parse(req.body);
+  console.log(info);
+  const renderedView = await ejs.renderFile('./views/index.ejs', { event: info.event }, 'cache');
+  console.log(renderedView);
+  const currentDate = (new Date()).valueOf().toString();
+  const random = Math.random().toString();
+  await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
+    if (err) return res.json({ err });
+    res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+    res.write(buffer);
+    res.end('ended');
+  });
 });
 
 /**
@@ -109,9 +99,9 @@ app.post('/sendEvent', async (req, res) => {
  * @apiParam {string} time Time of requirement
  * @apiParam {string} beneficiaries Beneficiaries
  * @apiParam {object} facultyAdvisor Faculty Advisor Details
- * @apiParam {string} otherDetails Other Details if required 
+ * @apiParam {string} otherDetails Other Details if required
  * @apiPermission admin
- * 
+ *
  * @apiParamExample {json} request-example
  * {
  *    "extstudents": {
@@ -134,40 +124,35 @@ app.post('/sendEvent', async (req, res) => {
 
 
 app.post('/sendExtStudent', async (req, res) => {
-    const info1 = (JSON.parse(req.body)).extstudents;
-    console.log(info1);
-    const renderedView = await ejs.renderFile('./views/Students_Visiting_ouside_VIT.ejs', {info1 : info1}, 'cache');
-    console.log(renderedView);
-    const currentDate = (new Date()).valueOf().toString();
-    const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    const resp = await pdf.create(renderedView).toFile(pdfName, () => {
-        console.log(pdfName);
-        res.download(pdfName, 'ext_stud_event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                console.log('File deleted!');
-            });
-        });
-    });
-
+  const info1 = (JSON.parse(req.body)).extstudents;
+  console.log(info1);
+  const renderedView = await ejs.renderFile('./views/Students_Visiting_ouside_VIT.ejs', { info1 }, 'cache');
+  console.log(renderedView);
+  const currentDate = (new Date()).valueOf().toString();
+  const random = Math.random().toString();
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
+    if (err) return res.json({ err });
+    res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+    res.write(buffer);
+    res.end('ended');
+  });
 });
 
 /**
  * @api {post} /sendExt Send event for externals
  * @apiName Send event for Externals
  * @apiGroup all
- * @apiParam {string} clubName Name of club 
+ * @apiParam {string} clubName Name of club
  * @apiParam {string} event Event Name
  * @apiParam {object} external External Details
  * @apiParam {string} date Date of Issue
  * @apiParam {string} time Time for Issue
  * @apiParam {string} beneficiary Beneficiary
  * @apiParam {object} facultyAdvisor Faculty Advisor
- * @apiParam {string} transport Type of Transport 
+ * @apiParam {string} transport Type of Transport
  * @apiPermission admin
- * 
+ *
  * @apiParamExample {json} request-example
  * {
  *       "externals": {
@@ -194,25 +179,20 @@ app.post('/sendExtStudent', async (req, res) => {
  */
 
 app.post('/sendExt', async (req, res) => {
-    console.log(req.body);
-    const info3 = (JSON.parse(req.body)).externals;
-    console.log(info3);
-    const renderedView = await ejs.renderFile('./views/Externals_Visiting_VIT.ejs', {info3 : info3}, 'cache');
-    console.log(renderedView);
-    const currentDate = (new Date()).valueOf().toString();
-    const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    const resp = await pdf.create(renderedView).toFile(pdfName, () => {
-        console.log(pdfName);
-        res.download(pdfName, 'ext_event.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                console.log('File deleted!');
-            });
-        });
-    });
-
+  console.log(req.body);
+  const info3 = (JSON.parse(req.body)).externals;
+  console.log(info3);
+  const renderedView = await ejs.renderFile('./views/Externals_Visiting_VIT.ejs', { info3 }, 'cache');
+  console.log(renderedView);
+  const currentDate = (new Date()).valueOf().toString();
+  const random = Math.random().toString();
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
+    if (err) return res.json({ err });
+    res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+    res.write(buffer);
+    res.end('ended');
+  });
 });
 
 /**
@@ -231,7 +211,7 @@ app.post('/sendExt', async (req, res) => {
  * @apiParam {string} comLead Community Lead
  * @apiParam {string} facCoordinator Faculty Coordinator
  * @apiPermission admin
- * 
+ *
  * @apiParamExample {json} request-example
  *{
  *   "nightpermissions": {
@@ -251,29 +231,22 @@ app.post('/sendExt', async (req, res) => {
  */
 
 app.post('/nightPermissions', async (req, res) => {
-    const info4 = (JSON.parse(req.body)).nightpermissions;
-    console.log(info4);
-    const renderedView = await ejs.renderFile('./views/NightRoom_Permissions.ejs', {info4 : info4}, 'cache');
-    console.log(renderedView);
-    const currentDate = (new Date()).valueOf().toString();
-    const random = Math.random().toString();
-    const hash = crypto.createHash("sha1").update(currentDate + random).digest('hex') + '.pdf';
-    const pdfName = path.resolve(path.join(__dirname, hash));
-    await pdf.create(renderedView).toFile(pdfName, (err, resp) => {
-        console.log(pdfName);
-        res.download(pdfName, 'Night_Permissions.pdf', () => {
-            fs.unlink(pdfName, (err) => {
-                if (err) throw err;
-                // if no error, file has been deleted successfully
-                console.log('File deleted!');
-            });
-        });
-    });
-
+  const info4 = (JSON.parse(req.body)).nightpermissions;
+  console.log(info4);
+  const renderedView = await ejs.renderFile('./views/NightRoom_Permissions.ejs', { info4 }, 'cache');
+  console.log(renderedView);
+  const currentDate = (new Date()).valueOf().toString();
+  const random = Math.random().toString();
+  const resp = await pdf.create(renderedView, { phantomPath:"/usr/local/bin/phantomjs" }).toBuffer((err, buffer) => {
+    if (err) return res.json({ err });
+    res.set('Content-disposition', 'attachment; filename=permission.pdf');
+  			res.set('Content-Type', 'application/pdf');
+    res.write(buffer);
+    res.end('ended');
+  });
 });
 
 
 // Listening to requests
-port = process.env.PORT  || 8000;
+port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`rsListening on port ${port}`));
-

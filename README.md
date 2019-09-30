@@ -1,32 +1,56 @@
-# Permission-Generator-Microservice
+## Permission-Generator-Microservice
+A light microservice for generating event permissions
 
-## A small microservice for generating permissions
+[![view docs](https://img.shields.io/badge/docs-view%20API%20documentation-orange.svg)](https://abhishekkushwaha4u.github.io/Permission-Generator-Microservice/)
 
-### Getting Started
+ 
+### What this API offers
 
-## Installing Packages
+- [X] Night permission generator
+- [X] Event permission generator
+- [X] Send event to externals
+- [X] Send event to external students
+- [ ] Fetch event details directly from Hades
+- [ ] Custom permission template upload and generation
+- [ ] Send Permission document to the mailer service
+
+<br/>
+
+### Getting started
+Permission generator is a microservice which is a part of [Project Hades](https://github.com/GDGVIT/Project-Hades.git). 
+
+```bash
+# clone your copy
+$ git clone https://github.com/GDGVIT/Permission-Generator-Microservice
+
+# Navigate inside the project
+$ cd Permission-Generator-Microservice
+```
+
+<br/>
+
+#### Installing Packages
 
 To install all the required packages, run:
 
+```bash
+# Install all dependancies
+$ npm install
+
+# Run the project
+$ npm start
 ```
-npm install
+This will start an instance in production
+
+<br/>
+
+#### Starting in dev mode
+
+```bash
+# Install hot reloader
+$ sudo npm install -g nodemon 
+
+# Start the project in dev mode
+$ npm run dev
 ```
-
-## Running the local server
-
-To run the local server, type
-
-```
-npm start
-```
-
-Incase you do not want to quit and restart the server upon making changes in code, use the **nodemon** module
-
-## To install **nodemon module**,type:
-
-```
-npm i nodemon
-```
-This should automatically take care to restart the server incase you make changes.
-
-To know more about how to make sample requests, kindly refer to the docs here- https://abhishekkushwaha4u.github.io/Permission-Generator-Microservice/
+This will allow hot reloading of the application
